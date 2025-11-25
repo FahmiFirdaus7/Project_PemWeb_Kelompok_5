@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-$isAdmin = true;
+$isAdmin = (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin');
 
 include "../koneksi.php";
 
@@ -79,7 +79,7 @@ $galeri = mysqli_query($koneksi, "SELECT * FROM galeri ORDER BY id DESC");
 </nav>
 
 <div class="container py-5">
-
+  <?php if ($isAdmin): ?>
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="fw-bold text-white">Galeri Pendakian</h2>
 
@@ -87,7 +87,8 @@ $galeri = mysqli_query($koneksi, "SELECT * FROM galeri ORDER BY id DESC");
       + Tambah Foto
     </a>
   </div>
-
+  <?php endif; ?>
+  
   <div class="row g-4">
 
     <?php while ($g = mysqli_fetch_assoc($galeri)) : ?>
@@ -101,12 +102,14 @@ $galeri = mysqli_query($koneksi, "SELECT * FROM galeri ORDER BY id DESC");
             <p class="text-muted small"><?= $g['deskripsi'] ?></p>
           </div>
 
+          <?php if ($isAdmin): ?>
           <div class="d-flex justify-content-between p-2">
-            <a href="galeri_edit.php?id=<?= $g['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-            <a onclick="return confirm('Hapus foto ini?')"
-              href="../controller/galeri_controller_hapus.php?id=<?= $g['id'] ?>"
-              class="btn btn-danger btn-sm">Hapus</a>
+              <a href="galeri_edit.php?id=<?= $g['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
+              <a onclick="return confirm('Hapus foto ini?')"
+                href="../controller/galeri_controller_hapus.php?id=<?= $g['id'] ?>"
+                class="btn btn-danger btn-sm">Hapus</a>
           </div>
+          <?php endif; ?>
 
         </div>
       </div>
