@@ -93,13 +93,10 @@ Meski berbahaya, Merapi punya daya tarik kuat karena megah, mistis, dan penuh se
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav text-white fw-semibold">
         <li class="nav-item mx-2"><a href="index.php" class="nav-link">Beranda</a></li>
-        <li class="nav-item mx-2"><a href="#tentang" class="nav-link">Tentang</a></li>
-        <li class="nav-item mx-2"><a href="#rute" class="nav-link">Rute</a></li>
-        <li class="nav-item mx-2"><a href="#galeri" class="nav-link">Galeri</a></li>
+        <li class="nav-item mx-2"><a href="galeri.php" class="nav-link">Galeri</a></li>
         <li class="nav-item mx-2"><a href="../controller/logout_controller.php" class="nav-link bg-success bg-gradient
 ">Logout</a></li>
       </ul>

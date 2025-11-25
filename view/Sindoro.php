@@ -95,9 +95,7 @@ terutama via Kledung, sehingga jadi favorit pemula maupun pendaki berpengalaman.
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav text-white fw-semibold">
         <li class="nav-item mx-2"><a href="index.php" class="nav-link">Beranda</a></li>
-        <li class="nav-item mx-2"><a href="#tentang" class="nav-link">Tentang</a></li>
-        <li class="nav-item mx-2"><a href="#rute" class="nav-link">Rute</a></li>
-        <li class="nav-item mx-2"><a href="#galeri" class="nav-link">Galeri</a></li>
+        <li class="nav-item mx-2"><a href="galeri.php" class="nav-link">Galeri</a></li>
         <li class="nav-item mx-2"><a href="../controller/logout_controller.php" class="nav-link bg-success bg-gradient
 ">Logout</a></li>
       </ul>
