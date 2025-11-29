@@ -2,17 +2,11 @@
 session_start();
 include "../koneksi.php";
 
-/* ==========================
-   SESSION GUARD (OPTIONAL)
-   ========================== */
 if(!isset($_SESSION['username'])){
     header("Location: login.php");
     exit();
 }
 
-/* ==========================
-   AMBIL DATA SEMUA PEMESANAN
-   ========================== */
 $sql = "SELECT * 
         FROM pemesanan 
         ORDER BY Jadwal DESC";

@@ -124,6 +124,25 @@
             margin-top: auto;
             display: inline-block;
           }
+      .video-wrapper {
+              position: absolute;
+              top: 0; left: 0;
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+          }
+
+          .video-wrapper iframe {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 120vw;
+              height: 120vh;
+              transform: translate(-50%, -50%);
+              object-fit: cover;
+              pointer-events: none;
+          }
+
 
 
   </style>
@@ -160,11 +179,9 @@
 
 <section id="home" class="position-relative vh-100 d-flex justify-content-center align-items-center text-white text-center overflow-hidden">
 
-    <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden" style="z-index: -1;">
+    <div class="video-wrapper">
         <iframe 
             src="https://www.youtube.com/embed/1V_4-f5Ocy4?autoplay=1&mute=1&controls=0&loop=1&playlist=1V_4-f5Ocy4&modestbranding=1&showinfo=0"
-            class="w-100 h-100"
-            style="object-fit: cover;"
             frameborder="0"
             allow="autoplay; encrypted-media"
             allowfullscreen>
@@ -174,15 +191,14 @@
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
 
     <div class="position-relative container">
-        <h1 class="display-4 fw-bold mb-3">Selamat datang! <br> <?php echo $role; ?>: <?php echo $username; ?> </h1>
+        <h1 class="display-4 fw-bold mb-3">Selamat datang! <br> <?php echo $role; ?>: <?php echo $username; ?></h1>
         <h2 class="display-4 fw-bold mb-3">di Hiking Hub</h2>
-        <p class="lead mb-4 ">
-            panduan lengkap tentang The Seven Summits Jawa Tengah 
-        </p>
+        <p class="lead mb-4">panduan lengkap tentang The Seven Summits Jawa Tengah</p>
         <a href="#tentang" class="btn btn-success btn-lg shadow">Mulai Petualangan</a>
     </div>
 
 </section>
+
 
 <section id="tentang" class="py-20 bg-dark w-full block m-0 p-0">
   <div class="max-w-6xl mx-auto text-center px-6 text-white">

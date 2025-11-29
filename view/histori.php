@@ -17,9 +17,9 @@ $username = $_SESSION['username'];
 # AMBIL DATA RIWAYAT
 # =======================
 $stmt = $koneksi->prepare("
-    SELECT * FROM riwayat_pemesanan 
-    WHERE Username = ?
-    ORDER BY Tanggal_Selesai DESC
+    SELECT * FROM pemesanan 
+    WHERE Nama_Pengunjung = ?
+    ORDER BY Jadwal DESC
 ");
 $stmt->bind_param("s", $username);
 $stmt->execute();
@@ -83,24 +83,29 @@ $result = $stmt->get_result();
 <body class="d-flex justify-content-center align-items-start">
 
 <header class="position-absolute w-100 z-3">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent px-4 py-3">
-    <a class="navbar-brand fs-3 fw-bold text-white" href="index.php">Hiking<span class="text-success">Hub</span></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent px-4 py-3">
+        <a class="navbar-brand fs-3 fw-bold text-white" href="index.php">
+            Hiking<span class="text-success">Hub</span>
+        </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-      <ul class="navbar-nav text-white fw-semibold">
-        <li class="nav-item mx-2">
-            <a href="index.php" class="nav-link bg-primary bg-gradient">Beranda</a>
-        </li>
-        <li class="nav-item mx-2">
-            <a href="../controller/logout_controller.php" class="nav-link bg-danger bg-gradient">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+            <ul class="navbar-nav fw-semibold">
+                <li class="nav-item mx-2">
+                    <a href="index.php" class="nav-link">Beranda</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="../controller/logout_controller.php"
+                       class="nav-link bg-success bg-gradient px-3 text-white rounded">
+                       Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
 <div style="
@@ -164,7 +169,7 @@ $result = $stmt->get_result();
 
         <div class="detail-row">
             <span class="label">Tanggal Selesai:</span>
-            <?= date("d-m-Y H:i", strtotime($data['Tanggal_Selesai'])) ?>
+            <?= date("d-m-Y H:i", strtotime($data['Jadwal'])) ?>
         </div>
 
     </div>
