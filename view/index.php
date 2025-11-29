@@ -4,6 +4,8 @@
 
     session_start();
 
+    $isAdmin = (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin');
+
     if (!isset($_SESSION['username'])) {
         header("Location: login.php");
         exit();
@@ -127,7 +129,7 @@
   </style>
 </head>
 <body onload="showAlert()">
-<audio id="bg-music" src="sweden.mp3" autoplay loop hidden></audio>
+<audio id="bg-music" src="MidnightCity.mp3" autoplay loop hidden></audio>
 
 <header class="position-absolute w-100 z-3">
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent px-4 py-3">
@@ -143,6 +145,12 @@
         <li class="nav-item mx-2"><a href="#tentang" class="nav-link">Tentang</a></li>
         <li class="nav-item mx-2"><a href="#rute" class="nav-link">Rute</a></li>
         <li class="nav-item mx-2"><a href="#galeri" class="nav-link">Galeri</a></li>
+      <?php if ($isAdmin): ?>
+        <li class="nav-item mx-2"><a href="resi_pengunjung.php" class="nav-link">Resi Pengunjung</a></li>
+      <?php endif; ?>
+      <?php if (!$isAdmin) : ?>
+        <li class="nav-item mx-2"><a href="histori.php" class="nav-link">Histori</a></li>
+      <?php endif; ?>
         <li class="nav-item mx-2"><a href="../controller/logout_controller.php" class="nav-link bg-success bg-gradient
 ">Logout</a></li>
       </ul>
@@ -180,7 +188,19 @@
   <div class="max-w-6xl mx-auto text-center px-6 text-white">
     <h3 class="text-3xl font-bold mb-4">Tentang Kami</h3>
     <p class="max-w-3xl mx-auto">
-      Kami adalah komunitas pecinta alam yang berdedikasi untuk mengajak siapa pun menikmati keindahan alam Indonesia melalui kegiatan hiking yang aman, seru, dan penuh edukasi lingkungan.
+      Hiking Hub lahir dari semangat untuk menghubungkan para pecinta alam dengan informasi pendakian yang lebih mudah, akurat, dan ramah pemula.
+      <br>
+      Kami menyadari bahwa banyak pendaki terutama pemula sering kesulitan mencari informasi jalur, kondisi gunung, perlengkapan yang tepat, hingga perkiraan cuaca sebelum mendaki.
+      <br>
+      Dari kebutuhan itulah Hiking Hub dibuat.
+      <br>
+      Website ini dibangun sebagai ruang bersama bagi komunitas pendaki untuk berbagi pengalaman, tips, dan rekomendasi.
+      <br>
+      Dengan tampilan sederhana namun informatif, Hiking Hub berupaya menjadi pusat informasi pendakian yang membantu siapa pun merencanakan perjalanan outdoor secara aman, nyaman, dan menyenangkan.
+      <br>
+      Kami percaya bahwa kegiatan mendaki bukan sekadar olahraga, tetapi juga cara untuk mendekatkan diri dengan alam, menantang diri sendiri, dan membangun solidaritas.
+      <br>
+      Karena itu, Hiking Hub hadir untuk mendukung petualanganmu dari rencana awal hingga puncak..
     </p>
   </div>
 </section>
